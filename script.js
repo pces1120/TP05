@@ -32,7 +32,7 @@ var Library = function (){
 
 	//Funcion para validar que la pelicula no fue ingresada previamente
 
-	this.peliculaNoIngresada = function (pelicula){
+	var peliculaNoIngresada = function (pelicula){
 
 		var pos = -1;
 		var peliculaActual;
@@ -54,7 +54,7 @@ var Library = function (){
 
 	//Funcion para agregar la pelicula
 
-	this.agregarPelicula = function (pelicula){
+	var agregarPelicula = function (pelicula){
 
 		var pos = peliculaNoIngresada(pelicula);
 
@@ -74,14 +74,7 @@ var Library = function (){
 
 	//Funcion para eliminar una pelicula por ID
 
-	this.obtenerId = function (){
-
-		return pelicula.id;
-	}
-
-
-	this.eliminarPelicula = function (idPelicula){
-
+	var eliminarPelicula = function (idPelicula){
 		
 		for(i = 0; i < peliculas.length ; i++){
 
@@ -104,7 +97,7 @@ var Library = function (){
 	//Funcion para ordenar peliculas por ID
 
 
-	this.compararId = function (peliculaA,peliculaB) {
+	var compararId = function (peliculaA,peliculaB) {
 
 		var resultado;
 
@@ -131,21 +124,16 @@ var Library = function (){
 		}
 
 
-	this.ordenarId = function() {
+	var ordenarId = function() {
 
-		peliculas.sort(this.compararId);
+		console.log(peliculas.sort(this.compararId));
 
 	}
 
 
 	//Funcion para ordenar peliculas por Titulo
 
-	this.obtenerTitulo = function (){
-
-		return pelicula.titulo;
-	}
-
-	this.compararTitulo = function (tituloA,tituloB) {
+	var compararTitulo = function (tituloA,tituloB) {
 
 		var resultado;
 
@@ -172,10 +160,18 @@ var Library = function (){
 		}
 
 
-	this.ordenarTitulo = function() {
+	var ordenarTitulo = function() {
 
-		peliculas.sort(this.compararTitulo);
+		console.log(peliculas.sort(this.compararTitulo));
 
+	}
+
+	return{
+
+		ordenarTitulo: ordenarTitulo,
+		ordenarId: ordenarId,
+		agregarPelicula: agregarPelicula,
+		eliminarPelicula: eliminarPelicula,
 	}
 
 }
